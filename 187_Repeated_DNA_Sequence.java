@@ -8,9 +8,10 @@
         # Basic approach : 
         # Optimized approach: 
                               
-            # 1. Take the XOR of each element
-              2. XOR will nullfiy each pair that is repaeating at the end we will have anser.
-              3. return x.
+            # 1. Create two hashset for mainting the subsequence.
+              2. Create  substring of 10 size and chexk in hashsset. if it is repeated then
+                 add to output else add into second hashset
+              3. At the end, return result arraylist from output hashset.
     */  
 
 class Solution {
