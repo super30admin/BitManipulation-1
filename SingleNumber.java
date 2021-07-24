@@ -2,6 +2,31 @@ import java.util.*;
 
 public class SingleNumber {
 
+    public int[] singleNumber(int[] nums) {
+        if(nums == null || nums.length == 0) return new int[]{};
+       
+       int bitmask = 0;
+       int x = 0;
+       int y = 0;
+
+       for(int number: nums) {
+            //This will remove the duplicated numbers
+           bitmask ^= number;
+       }
+
+       //bitmask contains two missing numbers. 
+       int diff = bitmask & (-bitmask);
+       for(int number: nums) {
+           if((diff & number) != 0) {
+               x ^= number;
+           }
+       }
+       //We found the one missing number which is x.
+       //If we xor x with bitmask we can get the second missing number.
+       y = x^bitmask;
+       return new int[]{x,y};
+   }
+
     // XOR Approach
     public int singleNumber1Bitwise(int[] nums) {
         if (nums == null || nums.length == 0)
@@ -49,29 +74,6 @@ public class SingleNumber {
         }
         return result;
     }
-
-    public int[] singleNumber(int[] nums) {
-        if(nums == null || nums.length == 0) return new int[]{};
-       
-       //Finding the first missing value
-       int bitMaskOne = 0;
-       for(int number: nums) {
-           bitMaskOne ^= number;
-       }
-       
-       //Finding the second missing value
-       
-       
-       int bitMaskTwo = 0;
-       int diff = bitMaskOne & (-bitMaskOne);
-       
-       for(int number: nums) {
-           if((diff & number ) != 0) {
-               bitMaskTwo ^= number;
-           }
-       }
-       return new int[]{bitMaskTwo, bitMaskTwo ^ bitMaskOne};
-   }
 
     public static void main(String[] args) {
         SingleNumber singleNumber = new SingleNumber();
