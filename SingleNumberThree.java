@@ -4,11 +4,11 @@ public class SingleNumberThree {
 
     // Two Unique elements so we can not use just XOR.
     // If we apply XOR we can remove all the duplicates.
-    // We left with XOR or two missing elements.
+    // We left with two unique elements.
     // if we do AND operation of negative of current and current we will be getting
     // the intermediate result.
-    // If an elements give zero of AND op. - Means it is a duplicate. Else it is a
-    // unique numeber. We can update the first unique number.
+    // If AND operation of two elements gives zero. - Means it is a duplicate. Else
+    // it is an unique numeber. We can update the first unique number.
     // Since we got the first unique number, we just need to XOR with the initail
     // mask (two unique number). We can get the second number.
 
@@ -39,8 +39,6 @@ public class SingleNumberThree {
         y = x ^ bitmask;
         return new int[] { x, y };
     }
-
-    
 
     public int[] singleNumbe2and3HashTable(int[] nums) {
         if (nums == null || nums.length == 0)
