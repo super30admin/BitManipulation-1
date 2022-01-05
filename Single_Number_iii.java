@@ -1,5 +1,5 @@
 class Solution {
-    public int singleNumber(int[] nums) {
+    public int[] singleNumber(int[] nums) {
         int bitmask = 0;
         
         for(int num: nums){
