@@ -1,0 +1,12 @@
+//tc: o(n)
+//sc: o(1)
+//passed on leetcode: yes
+class Solution {
+    public int singleNumber(int[] nums) {
+        int bitmask = 0;
+        for (int num: nums) {
+            bitmask = bitmask^num; //xor with same num will be 0; only single num will be left
+        }
+        return bitmask;
+    }
+}
