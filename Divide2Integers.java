@@ -1,3 +1,6 @@
+//TC : O(Log N)
+//SC : O(1)
+
 class Solution {
     public int divide(int dividend, int divisor) {
         if(divisor == 0)    return Integer.MAX_VALUE;
