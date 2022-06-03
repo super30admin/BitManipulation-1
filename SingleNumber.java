@@ -1,3 +1,6 @@
+//TC : O(N)
+//SC : O(1)
+
 class Solution {
     public int singleNumber(int[] nums) {
         if(nums == null || nums.length == 0)    return 0;
