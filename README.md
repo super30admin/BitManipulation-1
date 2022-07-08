@@ -12,7 +12,7 @@ Single number (https://leetcode.com/problems/single-number/)
 
 
 ## Problem 3 
-Pair of  Single numbers
+Pair of  Single numbers (https://leetcode.com/problems/single-number-iii/)
 
  An array of numbers is gven to you and there exists exactly two elements which appear once and other elements appear twice you need to give the two elements that appear only once. The order in which your result appears is not important and make sure that your algorithm runs in linear time complexity and constant space complexity.
 
