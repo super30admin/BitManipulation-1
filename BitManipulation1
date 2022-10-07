@@ -1,0 +1,42 @@
+#Repeated DNA Sequences
+#tc: O(n)
+#sc: O(n)
+class Solution(object):
+    def findRepeatedDnaSequences(self, s):
+        n = len(s)
+        cnt = defaultdict(int)
+        for i in range(n - 9):
+            cnt[s[i:i+10]] += 1
+        
+        ans = []
+        for key, value in cnt.items():
+            if value >= 2: # Found a string that occurs more than once
+                ans.append(key)
+        return ans
+        
+Divide Two Integers
+#tc:O(logn)
+#sc:O(logn)
+class Solution:
+    def divide(self, dividend, divisor):
+        if dividend == -1<<31 and divisor == -1: return (1<<31)-1
+
+        a, b = abs(dividend), abs(divisor)
+        sign = (dividend < 0) == (divisor < 0)
+        res, cand = 0, [(1, b)]
+        
+        while b << 1 <= a:
+            cand += [(cand[-1][0]<<1, b<<1)]
+            b <<= 1
+            
+        for pw, num in cand[::-1]:
+            if a >= num:
+                a, res = a - num, res + pw
+                
+        return res if sign else -res
+Single Number
+#tc: O(n)
+#sc: O(1)
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+        return sum(list(set(nums)) * 2) - sum(nums)
