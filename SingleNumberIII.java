@@ -15,12 +15,12 @@ class Solution {
 			bitmask ^= num;
 		}
 
-		int temp = bitmask & (-bitmask);
+		int temp = bitmask & (-bitmask); // to retrieve the most significant bit
 		int bitmask2 = 0;
 
 		for (int num : nums) { // O(n)
 			if ((temp & num) != 0) {
-				bitmask2 ^= num;
+				bitmask2 ^= num; // get one of the number which is non-repeating
 			}
 		}
 
