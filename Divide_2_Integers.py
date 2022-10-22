@@ -1,4 +1,4 @@
-# Time complexity : O(k)
+# Time complexity : O(log k)
 # Space complexity : O(1)
 # Leetcode : Solved and submitted
 
