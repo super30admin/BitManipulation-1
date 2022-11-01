@@ -1,0 +1,17 @@
+class Solution:
+    def findRepeatedDnaSequences(self, s: str) -> List[str]:
+        f = 0
+        a = set()
+        res = set()
+        for l in range(9, len(s)):
+            w = s[f:l + 1]
+            if w in a:
+                res.add(w)
+            else:
+                a.add(w)
+            f += 1
+        return res
+    
+# Time Complexity : O(n)
+# Space Complecity : O(n)
+# Successfully implemented on Leetcode
