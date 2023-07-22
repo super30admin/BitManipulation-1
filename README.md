@@ -29,7 +29,7 @@ Input: [4,1,2,1,2]
 
 Output: 4
 
-## Problem3
+## Problem4
 Repeated DNA Sequences (https://leetcode.com/problems/repeated-dna-sequences/)
 
 
