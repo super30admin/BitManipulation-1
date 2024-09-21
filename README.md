@@ -4,12 +4,55 @@
 
 Divide Two Integers(https://leetcode.com/problems/divide-two-integers/)
 
+class Solution {
+public:
+    int divide(int dividend, int divisor) {
+        unsigned long long int lo = 0;
+        unsigned long long int hi = abs(dividend);
+        if (dividend == -2147483648) {
+            if (divisor == -1) 
+            {
+                return INT_MAX;
+            }
+            else if (divisor == 1) 
+            {
+                return -2147483648;
+            }
+        }
+        int ans = 0;
+        while (lo <= hi) {
+            unsigned long long int mid = (lo + hi)/2;
+            if (abs(divisor)*mid <= abs(dividend))
+            {
+                ans = mid;
+                lo = mid + 1;
+            }
+            else 
+            {
+                hi = mid -1 ;
+            }
+        }
+        if ((divisor > 0 && dividend < 0) || (divisor < 0 && dividend > 0)) 
+        {
+            return -ans;
+        }
+        else 
+        {
+            return ans;
+        }
+    }
+};
 
 
 ## Problem 2
 Single number (https://leetcode.com/problems/single-number/)
 
-
+public int singleNumber(int[] nums) {
+        int ans=0;
+	    for(int x:nums)
+	        ans^=x;
+	    return ans;
+    }
 
 ## Problem 3 
 Pair of  Single numbers
