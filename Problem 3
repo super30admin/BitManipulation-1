@@ -1,0 +1,22 @@
+//Time Complexity: O(n)
+//Space complexity: O(n)
+
+class Solution {
+    public List<String> findRepeatedDnaSequences(String s) {
+        int n =10;
+        
+        HashSet<String> hs1 = new HashSet<String>();
+        HashSet<String> hs2 = new HashSet<String>();
+        
+       for(int i=0;i<s.length()-9;i++)
+        {
+            if(!hs1.add(s.substring(i,i+n)))
+            {
+                hs2.add(s.substring(i,i+n));
+            }   
+         
+                
+        }
+        return new ArrayList<>(hs2);
+    }
+}
