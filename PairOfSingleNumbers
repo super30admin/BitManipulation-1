@@ -1,0 +1,20 @@
+T.c --> O(n)
+S.c --> O(1)
+
+class Solution {
+    public int[] singleNumber(int[] nums) {
+
+       int xor = 0;
+       for(int i =0; i<nums.length; i++){
+        xor = xor^nums[i];
+       } 
+       int temp = xor & -xor;
+       int xor2 = 0;
+       for(int i =0; i<nums.length; i++){
+        if((temp & nums[i]) != 0){
+           xor2 = nums[i] ^ xor2;
+        }        
+       } 
+       return new int[]{xor2,xor2^xor};
+    }
+}
