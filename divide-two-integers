@@ -1,0 +1,25 @@
+// Time Complexity :O(logn)
+// Space Complexity :
+// Did this code successfully run on Leetcode :yes
+// Any problem you faced while coding this :no
+// Your code here along with comments explaining your approach:
+class Solution {
+    public int divide(int dividend, int divisor) {
+        int result=0; 
+        if(dividend ==Integer.MIN_VALUE && divisor == -1)return  Integer.MAX_VALUE;
+        long ldividend = Math.abs((long) (dividend));
+        long ldivisor = Math.abs((long) (divisor));
+        while (ldividend >= ldivisor) {//O(logn)
+            int shifts = 0;
+            while (ldividend >= (ldivisor << shifts)) {
+                shifts++;
+            }
+            shifts--;
+            result += (1 << shifts);
+            ldividend = ldividend - (ldivisor << shifts); after this O(log k )
+        }
+        if ((dividend > 0 && divisor > 0) || (dividend < 0 && divisor < 0))
+            return result;
+        return -result;
+    }
+}

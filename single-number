@@ -1,0 +1,14 @@
+// Time Complexity :O(n)
+// Space Complexity :
+// Did this code successfully run on Leetcode :yes
+// Any problem you faced while coding this :no
+// Your code here along with comments explaining your approach:bitwise  
+class Solution {
+    public int singleNumber(int[] nums) {
+        int bitwise=0;
+        for(int num :nums){
+            bitwise ^= num;
+        }
+        return bitwise;
+    }
+}

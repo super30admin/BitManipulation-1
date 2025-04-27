@@ -1,0 +1,21 @@
+// Time Complexity :O(2n)
+// Space Complexity :
+// Did this code successfully run on Leetcode :yes
+// Any problem you faced while coding this :no
+// Your code here along with comments explaining your approach:using bitwise concept to find single number
+class Solution {
+    public int[] singleNumber(int[] nums) {
+          int bitwise=0;
+        for(int num :nums){
+            bitwise ^= num;
+        }
+        int lsb=bitwise & (-bitwise); // and with two's compliment(make 1's compliment to bitwise  and add 1 to it and do & with main bitwise); x+y= bitwise
+        int bitwise2=0; 
+        for(int num:nums){
+            if((lsb & num) != 0){ //lsb with all nums if we get non-zero as output then only do xor again remaining will be canceled as they appear two times
+                bitwise2 ^=num;
+            }
+        }
+        return new int[]{bitwise2, bitwise^bitwise2};
+    }
+}
